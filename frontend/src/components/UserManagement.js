@@ -14,8 +14,10 @@ function UserManagement() {
         fetch('http://localhost:5000/api/users')
             .then(response => response.json())
             .then(data => setUsers(data));
-    
-}, []);
+            
+    }, []);
+
+
 
     // handleChange-funktio päivittää tilan, kun käyttäjä muuttaa lomakkeen kenttää
     const handleChange = (e) => {
@@ -69,6 +71,7 @@ function UserManagement() {
         })
             .then(() => setUsers(users.filter(user => user.username !== username)));
     };
+
 
     // Komponentin renderöinti
     return (

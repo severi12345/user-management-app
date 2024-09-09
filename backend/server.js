@@ -54,8 +54,8 @@ app.delete('/api/users/:username', async (req, res) => {
     res.status(204).send();
 });
 
-app.post('/api/login', async (req, res) => {
-    const { username, password } = req.body;
+// Käyttäjän kirjautuminen
+app.post('/api/login', async (req, res) => {    const { username, password } = req.body;
     
     // Etsi käyttäjä tietokannasta
     const user = await User.findOne({ username });

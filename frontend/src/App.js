@@ -4,7 +4,7 @@ import React from 'react';
 import Register from './components/Register';
 import Login from './components/Login';
 import UserManagement from './components/UserManagement';
-import Palvelu from './components/Palvelut';
+import Palvelut from './components/Palvelut';
 import './App.css';
 //import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'; //Tämä ei toimi
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; //Näin piti muuttaa että toimi<zx
@@ -33,7 +33,6 @@ function App() {
                         </li>
                     </ul>
                 </nav>
-
                 {/* Reititykset */}
                 <Routes>
                     <Route path="/" element={
@@ -45,6 +44,7 @@ function App() {
                     <Route path="/rekisteröinti" element={<Register />} />
                     <Route path="/kirjautuminen" element={<Login />} />
                     <Route path="/käyttäjät" element={<UserManagement />} />
+                    <Route path="/palvelut" element={<Palvelut />} />
                 </Routes>
             </div>
         </Router>

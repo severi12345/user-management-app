@@ -5,34 +5,24 @@ import React, { useState } from 'react';
 function Register() {
     // useState hook luo tilan käyttäjän tiedoille: käyttäjänimi, salasana ja bio
     const [user, setUser] = useState({ username: '', password: '', bio: '' });
-
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);
 
     // handleChange-funktio päivittää tilan, kun käyttäjä muuttaa lomakkeen kenttää
     const handleChange = (e) => {
-        // Päivitetään vastaava kenttä tilassa
-    };
-    // handleSubmit-funktio käsittelee lomakkeen lähetyksen
-
-    const handleSubmit = async (e) => {
-        
         setUser({
             ...user,
             [e.target.name]: e.target.value
         });
-
+    };
+    
+    // handleSubmit-funktio käsittelee lomakkeen lähetyksen
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
         setError(null);
-        setSuccess(false);  // Nollataan onnistumisviesti ennen uutta yritystä
+        setSuccess(false);
 
-        // Tulostetaan rekisteröityneen käyttäjän tiedot konsoliin
-        console.log('Käyttäjä rekisteröitynyt:', user);
-        // Näytetään ilmoitus onnistuneesta rekisteröinnistä
-        alert('Käyttäjä rekisteröityi onnistuneesti');
-
-         try {
+        try {
             const response = await fetch('http://localhost:5000/api/users', {
                 method: 'POST',
                 headers: {
@@ -40,7 +30,6 @@ function Register() {
                 },
                 body: JSON.stringify(user)
             });
-
             if (response.ok) {
                 const data = await response.json();
                 console.log('Käyttäjä rekisteröitynyt:', data);
@@ -62,9 +51,9 @@ function Register() {
             <h2>Rekisteröinti</h2>
 
             {/* Näytetään virheilmoitus, jos rekisteröinti epäonnistuu */}
-            {/*{error && <p style={{ color: 'red' }}>{error}</p>}*/}
+            {error && <p style={{ color: 'red' }}>{error}</p>}
             {/* Näytetään onnistumisviesti, jos rekisteröinti onnistuu */}
-            {/*{success && <p style={{ color: 'green' }}>Rekisteröinti onnistui!</p>}*/}
+            {success && <p style={{ color: 'green' }}>Rekisteröinti onnistui!</p>}
 
             {/* Lomakkeen lähetys kutsuu handleSubmit-funktiota */}
             <form onSubmit={handleSubmit}>
