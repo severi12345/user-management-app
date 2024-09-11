@@ -23,7 +23,7 @@ function Login() {
         e.preventDefault();
         try {
             // Lähetä POST-pyyntö backendille kirjautumistietojen kanssa
-            const response = await fetch('http://localhost:5000/api/login', {
+            const response = await fetch('https://user-management-app-1-dxte.onrender.com:5000/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

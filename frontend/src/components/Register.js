@@ -23,7 +23,8 @@ function Register() {
         setSuccess(false);
 
         try {
-            const response = await fetch('http://localhost:5000/api/users', {
+            //const response = await fetch('http://localhost:5000/api/users', {
+            const response = await fetch('https://user-management-app-1-dxte.onrender.com:5000/api/users', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
